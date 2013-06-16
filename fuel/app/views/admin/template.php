@@ -22,7 +22,7 @@
 	<div class="navbar navbar-fixed-top">
 	    <div class="navbar-inner">
 	        <div class="container">
-	            <a href="/admin" class="brand">Brogrammers' Beverage Store</a>
+	            <a href="/admin" class="brand">Brogrammers' Beverage Shoppe</a>
 	            <ul class="nav">
 	                <li class="<?php echo Uri::segment(2) == '' ? 'active' : '' ?>">
 						<?php echo Html::anchor('admin', 'Home') ?>
