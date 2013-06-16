@@ -5,13 +5,21 @@ class Controller_Api extends Controller_Rest
     
   public function get_item()
   {
-    $upc = Input::get('upc');
-    if (strlen($upc) == 13) $upc = substr ($upc, 1);
+    if (Input::get('id') != null)
+    {
+      $item = Model_Item::find(Input::get('id'));
+    }
+    else if (Input::get('upc') != null)
+    {
+      $upc = Input::get('upc');
+      if (strlen($upc) == 13) $upc = substr ($upc, 1);
+      
+      $item = Model_Item::find('first', array(
+                           'where' => array(
+                                array('upc', $upc),
+                            )));
+    }
     
-    $item = Model_Item::find('first', array(
-                         'where' => array(
-                              array('upc', $upc),
-                          )));
     if ($item == null)
       return $this->response(array(
                  'error' => 'Item not found'

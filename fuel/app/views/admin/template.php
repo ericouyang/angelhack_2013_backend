@@ -29,11 +29,11 @@
 					</li>
 
 					<li class="<?php echo Uri::segment(2) == 'item' ? 'active' : '' ?>">
-						<a href="http://localhost/admin/item">Inventory</a>
+						<a href="/admin/item">Inventory</a>
 					</li>
 
 					<li class="<?php echo Uri::segment(2) == 'transaction' ? 'active' : '' ?>">
-						<a href="http://localhost/admin/transaction">Transactions</a>
+						<a href="/admin/transaction">Transactions</a>
 					</li>
 
 	          </ul>
