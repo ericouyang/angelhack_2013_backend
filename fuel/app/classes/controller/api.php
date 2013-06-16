@@ -6,7 +6,7 @@ class Controller_Api extends Controller_Rest
   public function get_item()
   {
     $upc = Input::get('upc');
-    if (size($upc) == 13) $upc = substr ($upc, 1);
+    if (strlen($upc) == 13) $upc = substr ($upc, 1);
     
     $item = Model_Item::find('first', array(
                          'where' => array(
