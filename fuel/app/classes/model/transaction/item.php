@@ -1,6 +1,8 @@
 <?php
 class Model_Transaction_Item extends \Orm\Model
 {
+  protected static $_belongs_to = array('transaction', 'item');
+  
 	protected static $_properties = array(
 		'id',
 		'transaction_id',

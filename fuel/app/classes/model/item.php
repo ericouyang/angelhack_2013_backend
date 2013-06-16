@@ -1,11 +1,13 @@
 <?php
 class Model_Item extends \Orm\Model
 {
+  protected static $_has_many = array('transaction_items');
+  
 	protected static $_properties = array(
 		'id',
-		'cost',
 		'name',
 		'description',
+		'cost',
 		'qty',
 		'upc',
 		'created_at',

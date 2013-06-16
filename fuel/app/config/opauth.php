@@ -65,19 +65,9 @@ return array(
 	 * Refer to individual strategy's documentation on configuration requirements.
 	 */
 	'Strategy' => array(
-    'OAuth' => array(
-        'consumer_key' => '33afd69609126ce5018411bdb020a2d7',
-        'consumer_secret' => '271e41126504e008',
-    
-        'request_token_url' => 'https://api.intel.com:8081/oauth20/token',
-        'access_token_url' => 'http://OAUTH_SERVER/oauth/access_token'
-    ),
-	/**
-	 *   'Facebook' => array(
-	 *      'app_id' => 'APP ID',
-	 *      'app_secret' => 'APP_SECRET'
-	 *    ),
-	 */
-
+     'Intel' => array(
+       'client_id' => '33afd69609126ce5018411bdb020a2d7',
+       'client_secret' => '271e41126504e008'
+     ),
 	 ),
 );

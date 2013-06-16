@@ -19,9 +19,6 @@
         "php": ">=5.3.3",
         "monolog/monolog": "1.5.*",
         "opauth/opauth": "0.4.*",
-        "opauth/oauth": "dev-master",
-        "opauth/facebook": "dev-master",
-        "opauth/paypal": "dev-master",
     	  "fuelphp/upload": "2.0"
     },
     "suggest": {
