@@ -5,7 +5,7 @@ class Controller_Admin_Item extends Controller_Admin
 	public function action_index()
 	{
 		$data['items'] = Model_Item::find('all');
-		$this->template->title = "Items";
+		$this->template->title = "Inventory";
 		$this->template->content = View::forge('admin/item/index', $data);
 
 	}
@@ -14,7 +14,7 @@ class Controller_Admin_Item extends Controller_Admin
 	{
 		$data['item'] = Model_Item::find($id);
 
-		$this->template->title = "Item";
+		$this->template->title = "Inventory";
 		$this->template->content = View::forge('admin/item/view', $data);
 
 	}

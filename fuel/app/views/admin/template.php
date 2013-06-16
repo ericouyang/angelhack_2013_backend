@@ -25,22 +25,17 @@
 	            <a href="/admin" class="brand">Brogrammers' Beverage Store</a>
 	            <ul class="nav">
 	                <li class="<?php echo Uri::segment(2) == '' ? 'active' : '' ?>">
-						<?php echo Html::anchor('admin', 'Dashboard') ?>
+						<?php echo Html::anchor('admin', 'Home') ?>
 					</li>
 
-					<?php
-						$files = new GlobIterator(APPPATH.'classes/controller/admin/*.php');
-						foreach($files as $file)
-						{
-							$section_segment = $file->getBasename('.php');
-							$section_title = Inflector::humanize($section_segment);
-							?>
-							<li class="<?php echo Uri::segment(2) == $section_segment ? 'active' : '' ?>">
-								<?php echo Html::anchor('admin/'.$section_segment, $section_title) ?>
-							</li>
-							<?php
-						}
-					?>
+					<li class="<?php echo Uri::segment(2) == 'item' ? 'active' : '' ?>">
+						<a href="http://localhost/admin/item">Inventory</a>
+					</li>
+
+					<li class="<?php echo Uri::segment(2) == 'transaction' ? 'active' : '' ?>">
+						<a href="http://localhost/admin/transaction">Transactions</a>
+					</li>
+
 	          </ul>
 
 	          <ul class="nav pull-right">
