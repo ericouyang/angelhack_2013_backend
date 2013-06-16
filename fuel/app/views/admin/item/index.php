@@ -1,4 +1,4 @@
-<h2>Listing Items</h2>
+<h2>Item Inventory</h2>
 <br>
 <?php if ($items): ?>
 <table class="table table-striped">
@@ -9,7 +9,7 @@
 			<th>Name</th>
 			<th>Description</th>
 			<th>Qty</th>
-			<th>Upc</th>
+			<th>UPC</th>
 			<th></th>
 		</tr>
 	</thead>
@@ -24,7 +24,7 @@
 			<td>
 				<?php echo Html::anchor('admin/item/view/'.$item->id, 'View'); ?> |
 				<?php echo Html::anchor('admin/item/edit/'.$item->id, 'Edit'); ?> |
-				<?php echo Html::anchor('admin/item/delete/'.$item->id, 'Delete', array('onclick' => "return confirm('Are you sure?')")); ?>
+				<?php echo Html::anchor('admin/item/delete/'.$item->id, 'Delete', array('onclick' => "return confirm('Are you sure you want to delete this?')")); ?>
 
 			</td>
 		</tr>

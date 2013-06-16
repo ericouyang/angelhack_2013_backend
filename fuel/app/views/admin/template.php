@@ -4,8 +4,9 @@
 	<meta charset="utf-8">
 	<title><?php echo $title; ?></title>
 	<?php echo Asset::css('bootstrap.css'); ?>
+	<?php echo Asset::css('style.css'); ?>
 	<style>
-		body { margin: 50px; }
+		
 	</style>
 	<?php echo Asset::js(array(
 		'http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js',
@@ -21,7 +22,7 @@
 	<div class="navbar navbar-fixed-top">
 	    <div class="navbar-inner">
 	        <div class="container">
-	            <a href="#" class="brand">My Site</a>
+	            <a href="/admin" class="brand">Brogrammers' Beverage Store</a>
 	            <ul class="nav">
 	                <li class="<?php echo Uri::segment(2) == '' ? 'active' : '' ?>">
 						<?php echo Html::anchor('admin', 'Dashboard') ?>

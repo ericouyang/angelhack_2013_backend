@@ -8,7 +8,7 @@
 		<div class="error"><?php echo $login_error; ?></div>
 	<?php endif; ?>
 
-	<div class="row">
+	<div>
 		<label for="email">Email or Username:</label>
 		<div class="input"><?php echo Form::input('email', Input::post('email')); ?></div>
 		
@@ -17,7 +17,7 @@
 		<?php endif; ?>
 	</div>
 
-	<div class="row">
+	<div>
 		<label for="password">Password:</label>
 		<div class="input"><?php echo Form::password('password'); ?></div>
 		

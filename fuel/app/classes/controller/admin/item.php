@@ -37,14 +37,14 @@ class Controller_Admin_Item extends Controller_Admin
 
 				if ($item and $item->save())
 				{
-					Session::set_flash('success', e('Added item #'.$item->id.'.'));
+					Session::set_flash('success', e('Added new item: '.$item->name.'.'));
 
 					Response::redirect('admin/item');
 				}
 
 				else
 				{
-					Session::set_flash('error', e('Could not save item.'));
+					Session::set_flash('error', e('Could not add item.'));
 				}
 			}
 			else
@@ -73,14 +73,14 @@ class Controller_Admin_Item extends Controller_Admin
 
 			if ($item->save())
 			{
-				Session::set_flash('success', e('Updated item #' . $id));
+				Session::set_flash('success', e('Updated item: ' . $item->name));
 
 				Response::redirect('admin/item');
 			}
 
 			else
 			{
-				Session::set_flash('error', e('Could not update item #' . $id));
+				Session::set_flash('error', e('Could not update item ' . $item->name));
 			}
 		}
 
@@ -111,12 +111,12 @@ class Controller_Admin_Item extends Controller_Admin
 		{
 			$item->delete();
 
-			Session::set_flash('success', e('Deleted item #'.$id));
+			Session::set_flash('success', e('Deleted item: '.$item->name));
 		}
 
 		else
 		{
-			Session::set_flash('error', e('Could not delete item #'.$id));
+			Session::set_flash('error', e('Could not delete item: '.$item->name));
 		}
 
 		Response::redirect('admin/item');
