@@ -52,7 +52,7 @@ class Controller_Api extends Controller_Rest
     return $this->response($new->id);
   }
   
-  public function get_transaction_add_item()
+  public function get_transaction_item_add()
   {
     $new = new Model_Transaction_Item();
     $new->transaction_id = Input::get('transaction_id');

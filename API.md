@@ -7,7 +7,7 @@ GET /api/item.json
 GET /api/transaction_create.json
 * user_id - Who's creating the transaction
 
-GET /api/transaction_add_item.json
+GET /api/transaction_item_add.json
 * transaction_id - what transaction to add this to
 * item_id - internal item id
 * qty - defaults to 1
