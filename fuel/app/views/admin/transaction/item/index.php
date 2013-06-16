@@ -4,15 +4,15 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th>Transaction id</th>
-			<th>Item id</th>
+			<th>Transaction ID</th>
+			<th>Item ID</th>
 			<th>Qty</th>
 			<th></th>
 		</tr>
 	</thead>
 	<tbody>
 <?php foreach ($transaction_items as $transaction_item): ?>		<tr>
-
+      <td><?php echo $transaction_item->id; ?></td>
 			<td><?php echo $transaction_item->transaction_id; ?></td>
 			<td><?php echo $transaction_item->item_id; ?></td>
 			<td><?php echo $transaction_item->qty; ?></td>

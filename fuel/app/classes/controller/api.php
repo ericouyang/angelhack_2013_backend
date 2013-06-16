@@ -35,21 +35,21 @@ class Controller_Api extends Controller_Rest
       return $this->response($transaction);
   }
   
-  public function post_transaction_create()
+  public function get_transaction_create()
   {
     $new = new Model_Transaction();
-    $new->user_id = Input::post('user_id');
+    $new->user_id = Input::get('user_id');
     $new->save();
     
     return $this->response($new->id);
   }
   
-  public function post_transaction_add_item()
+  public function get_transaction_add_item()
   {
     $new = new Model_Transaction_Item();
-    $new->transaction_id = Input::post('transaction_id');
-    $new->item_id = Input::post('item_id');
-    $new->qty = Input::post('quantity') == null ? 1 : Input::post('quantity');
+    $new->transaction_id = Input::get('transaction_id');
+    $new->item_id = Input::get('item_id');
+    $new->qty = Input::get('quantity') == null ? 1 : Input::get('quantity');
     $new->save();
     
     $new->item->qty = $new->item->qty - $new->qty;
@@ -63,35 +63,35 @@ class Controller_Api extends Controller_Rest
                     ->get_one());
   }
   
-  public function post_transaction_complete()
+  public function get_transaction_complete()
   {
-    $transaction = Model_Transaction::find(Input::post('transaction_id'));
-    $transaction->paypal_id = Input::post('paypal_id');
+    $transaction = Model_Transaction::find(Input::get('transaction_id'));
+    $transaction->paypal_id = Input::get('paypal_id');
     $transaction->save();
   }
   
-  public function post_transaction_item_update_quantity()
+  public function get_transaction_item_update_quantity()
   {
     $transaction_item = Model_Transaction_Item::find(Input::get('id'));
     $quantity_added = $transaction_item->qty;
-    $transaction_item->qty = Input::post('quantity') == null ? 1 : Input::post('quantity');
+    $transaction_item->qty = Input::get('quantity') == null ? 1 : Input::get('quantity');
     $transaction_item->save();
     
     $transaction_item->item->qty = $transaction_item->item->qty + $quantity_added - $transaction_item->qty;
     $transaction_item->item->save();
   }
   
-  public function post_transaction_item_delete()
+  public function get_transaction_item_delete()
   {
-    $transaction_item = Model_Transaction_Item::find(Input::post('id'));
+    $transaction_item = Model_Transaction_Item::find(Input::get('id'));
     $transaction_item->item->qty = $transaction_item->item->qty + $transaction_item->qty;
     $transaction_item->item->save();
     $transaction_item->delete();
   }
   
-  public function post_transaction_delete()
+  public function get_transaction_delete()
   {
-    $transaction = Model_Transaction::find(Input::post('id'));
+    $transaction = Model_Transaction::find(Input::get('id'));
     $transaction->delete();
   }
   

@@ -4,14 +4,15 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th>User id</th>
-			<th>Paypal id</th>
+		  <th>ID</th>
+			<th>User ID</th>
+			<th>Paypal ID</th>
 			<th></th>
 		</tr>
 	</thead>
 	<tbody>
 <?php foreach ($transactions as $transaction): ?>		<tr>
-
+      <td><?php echo $transaction->id; ?></td>
 			<td><?php echo $transaction->user_id; ?></td>
 			<td><?php echo $transaction->paypal_id; ?></td>
 			<td>

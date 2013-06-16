@@ -4,6 +4,7 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
+		  <th>ID</th>
 			<th>Cost</th>
 			<th>Name</th>
 			<th>Description</th>
@@ -14,7 +15,7 @@
 	</thead>
 	<tbody>
 <?php foreach ($items as $item): ?>		<tr>
-
+      <td><?php echo $item->id; ?></td>
 			<td><?php echo $item->cost; ?></td>
 			<td><?php echo $item->name; ?></td>
 			<td><?php echo $item->description; ?></td>
