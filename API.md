@@ -25,3 +25,6 @@ GET /api/transaction_item_delete.json
 
 GET /api/transaction_delete.json
 * id - of the transaction 
+
+GET /api/transaction_subtotal.json
+* id - of the transaction 

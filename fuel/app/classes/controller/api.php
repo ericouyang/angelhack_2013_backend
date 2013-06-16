@@ -98,4 +98,21 @@ class Controller_Api extends Controller_Rest
     $transaction->delete();
   }
   
+  public function get_transaction_subtotal()
+  {
+    $transaction = Model_Transaction::query()
+      ->related('transaction_items')
+      ->related('transaction_items.item')
+      ->where('id', Input::get('id'))
+      ->get_one();
+    
+    $subtotal = 0;
+    
+    foreach($transaction->transaction_items as $item)
+    {
+      $subtotal += $item->qty * $item->item->cost;
+    }
+    
+    return $this->response($subtotal);
+  }
 }
