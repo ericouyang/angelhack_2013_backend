@@ -1,14 +1,14 @@
 <div class="hero-unit">
 	<h1>Welcome to Luup!</h1>
 	<p>Get started by managing business inventory!</p>
-	<p><a class="btn btn-primary btn-large" href="/item/index.php">View Inventory</a></p>
+	<p><a class="btn btn-primary btn-large" href="/admin/item/index.php">View Inventory</a></p>
 </div>
 <div class="row">
 	<div class="span4">
 		<h2>How It Works</h2>
 		<p>Luup lets your customers use their smartphones to quickly purchase your goods!</p>
-		<p>To start, you can add or manage your inventory <a href="/item/index.php">here</a>.</p>
-		<p>Once your customers start making transactions, you can keep track of them <a href="/transaction/item/index.php">here</a>!</p>
+		<p>To start, you can add or manage your inventory <a href="/admin/item/index.php">here</a>.</p>
+		<p>Once your customers start making transactions, you can keep track of them <a href="/admin/transaction/index.php">here</a>!</p>
 	</div>
 	<div class="span4">
 		<h2>Mobile App</h2>
