@@ -6,6 +6,7 @@
 		<tr>
 			<th>Transaction id</th>
 			<th>Item id</th>
+			<th>Qty</th>
 			<th></th>
 		</tr>
 	</thead>
@@ -14,6 +15,7 @@
 
 			<td><?php echo $transaction_item->transaction_id; ?></td>
 			<td><?php echo $transaction_item->item_id; ?></td>
+			<td><?php echo $transaction_item->qty; ?></td>
 			<td>
 				<?php echo Html::anchor('admin/transaction/item/view/'.$transaction_item->id, 'View'); ?> |
 				<?php echo Html::anchor('admin/transaction/item/edit/'.$transaction_item->id, 'Edit'); ?> |

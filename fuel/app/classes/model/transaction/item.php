@@ -1,12 +1,11 @@
 <?php
 class Model_Transaction_Item extends \Orm\Model
 {
-  protected static $_belongs_to = array('transaction', 'item');
-  
 	protected static $_properties = array(
 		'id',
 		'transaction_id',
 		'item_id',
+		'qty',
 		'created_at',
 		'updated_at',
 	);
@@ -27,6 +26,7 @@ class Model_Transaction_Item extends \Orm\Model
 		$val = Validation::forge($factory);
 		$val->add_field('transaction_id', 'Transaction Id', 'required|valid_string[numeric]');
 		$val->add_field('item_id', 'Item Id', 'required|valid_string[numeric]');
+		$val->add_field('qty', 'Qty', 'required|valid_string[numeric]');
 
 		return $val;
 	}

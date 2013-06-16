@@ -30,6 +30,7 @@ class Controller_Admin_Transaction_Item extends Controller_Admin
 				$transaction_item = Model_Transaction_Item::forge(array(
 					'transaction_id' => Input::post('transaction_id'),
 					'item_id' => Input::post('item_id'),
+					'qty' => Input::post('qty'),
 				));
 
 				if ($transaction_item and $transaction_item->save())
@@ -64,6 +65,7 @@ class Controller_Admin_Transaction_Item extends Controller_Admin
 		{
 			$transaction_item->transaction_id = Input::post('transaction_id');
 			$transaction_item->item_id = Input::post('item_id');
+			$transaction_item->qty = Input::post('qty');
 
 			if ($transaction_item->save())
 			{
@@ -84,6 +86,7 @@ class Controller_Admin_Transaction_Item extends Controller_Admin
 			{
 				$transaction_item->transaction_id = $val->validated('transaction_id');
 				$transaction_item->item_id = $val->validated('item_id');
+				$transaction_item->qty = $val->validated('qty');
 
 				Session::set_flash('error', $val->error());
 			}

@@ -6,6 +6,9 @@
 <p>
 	<strong>Item id:</strong>
 	<?php echo $transaction_item->item_id; ?></p>
+<p>
+	<strong>Qty:</strong>
+	<?php echo $transaction_item->qty; ?></p>
 
 <?php echo Html::anchor('admin/transaction/item/edit/'.$transaction_item->id, 'Edit'); ?> |
 <?php echo Html::anchor('admin/transaction/item', 'Back'); ?>

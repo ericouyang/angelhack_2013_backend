@@ -18,6 +18,14 @@
 			</div>
 		</div>
 		<div class="control-group">
+			<?php echo Form::label('Qty', 'qty', array('class'=>'control-label')); ?>
+
+			<div class="controls">
+				<?php echo Form::input('qty', Input::post('qty', isset($transaction_item) ? $transaction_item->qty : ''), array('class' => 'span4', 'placeholder'=>'Qty')); ?>
+
+			</div>
+		</div>
+		<div class="control-group">
 			<label class='control-label'>&nbsp;</label>
 			<div class='controls'>
 				<?php echo Form::submit('submit', 'Save', array('class' => 'btn btn-primary')); ?>			</div>
