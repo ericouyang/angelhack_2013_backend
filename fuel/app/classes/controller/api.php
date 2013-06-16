@@ -5,13 +5,21 @@ class Controller_Api extends Controller_Rest
     
   public function get_item()
   {
-    $upc = Input::get('upc');
-    if (strlen($upc) == 13) $upc = substr ($upc, 1);
+    if (Input::get('id') != null)
+    {
+      $item = Model_Item::find(Input::get('id'));
+    }
+    else if (Input::get('upc') != null)
+    {
+      $upc = Input::get('upc');
+      if (strlen($upc) == 13) $upc = substr ($upc, 1);
+      
+      $item = Model_Item::find('first', array(
+                           'where' => array(
+                                array('upc', $upc),
+                            )));
+    }
     
-    $item = Model_Item::find('first', array(
-                         'where' => array(
-                              array('upc', $upc),
-                          )));
     if ($item == null)
       return $this->response(array(
                  'error' => 'Item not found'
@@ -44,7 +52,7 @@ class Controller_Api extends Controller_Rest
     return $this->response($new->id);
   }
   
-  public function get_transaction_add_item()
+  public function get_transaction_item_add()
   {
     $new = new Model_Transaction_Item();
     $new->transaction_id = Input::get('transaction_id');
@@ -55,12 +63,7 @@ class Controller_Api extends Controller_Rest
     $new->item->qty = $new->item->qty - $new->qty;
     $new->item->save();
     
-    return $this->response(
-                    Model_Transaction::query()
-                    ->related('transaction_items')
-                    ->related('transaction_items.item')
-                    ->where('id', $new->transaction_id)
-                    ->get_one());
+    return $this->response($new->id);
   }
   
   public function get_transaction_complete()
@@ -95,4 +98,21 @@ class Controller_Api extends Controller_Rest
     $transaction->delete();
   }
   
+  public function get_transaction_subtotal()
+  {
+    $transaction = Model_Transaction::query()
+      ->related('transaction_items')
+      ->related('transaction_items.item')
+      ->where('id', Input::get('id'))
+      ->get_one();
+    
+    $subtotal = 0;
+    
+    foreach($transaction->transaction_items as $item)
+    {
+      $subtotal += $item->qty * $item->item->cost;
+    }
+    
+    return $this->response($subtotal);
+  }
 }

@@ -16,7 +16,7 @@
 	<tbody>
 <?php foreach ($items as $item): ?>		<tr>
       <td><?php echo $item->id; ?></td>
-			<td><?php echo $item->cost; ?></td>
+			<td>$<?php echo sprintf("%01.2f",$item->cost/100.0); ?></td>
 			<td><?php echo $item->name; ?></td>
 			<td><?php echo $item->description; ?></td>
 			<td><?php echo $item->qty; ?></td>

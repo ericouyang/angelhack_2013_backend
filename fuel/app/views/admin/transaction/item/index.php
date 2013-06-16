@@ -6,7 +6,7 @@
 		<tr>
 			<th>Transaction Item ID</th>
 			<th>Transaction ID</th>
-			<th>Item ID</th>
+			<th>Item</th>
 			<th>Qty</th>
 			<th></th>
 		</tr>
@@ -15,7 +15,7 @@
 <?php foreach ($transaction_items as $transaction_item): ?>		<tr>
       <td><?php echo $transaction_item->id; ?></td>
 			<td><?php echo $transaction_item->transaction_id; ?></td>
-			<td><?php echo $transaction_item->item_id; ?></td>
+			<td><?php echo $transaction_item->item->name; ?></td>
 			<td><?php echo $transaction_item->qty; ?></td>
 			<td>
 				<?php echo Html::anchor('admin/transaction/item/view/'.$transaction_item->id, 'View'); ?> |

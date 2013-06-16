@@ -29,11 +29,11 @@
 					</li>
 
 					<li class="<?php echo Uri::segment(2) == 'item' ? 'active' : '' ?>">
-						<a href="http://localhost/admin/item">Inventory</a>
+						<a href="/admin/item">Inventory</a>
 					</li>
 
 					<li class="<?php echo Uri::segment(2) == 'transaction' ? 'active' : '' ?>">
-						<a href="http://localhost/admin/transaction">Transactions</a>
+						<a href="/admin/transaction">Transactions</a>
 					</li>
 
 	          </ul>
@@ -55,8 +55,10 @@
 	<div class="container">
 		<div class="row">
 			<div class="span12">
-				<h1><?php echo $title; ?></h1>
-				<hr>
+				<div class="page-header">
+          <h1><?php echo $title; ?></h1>
+        </div>
+				
 <?php if (Session::get_flash('success')): ?>
 				<div class="alert alert-success">
 					<button class="close" data-dismiss="alert">×</button>

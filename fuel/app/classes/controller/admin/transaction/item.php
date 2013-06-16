@@ -5,7 +5,7 @@ class Controller_Admin_Transaction_Item extends Controller_Admin
 	public function action_index()
 	{
 		$data['transaction_items'] = Model_Transaction_Item::find('all');
-		$this->template->title = "Transaction_items";
+		$this->template->title = "Transaction Items";
 		$this->template->content = View::forge('admin/transaction/item/index', $data);
 
 	}
@@ -14,7 +14,7 @@ class Controller_Admin_Transaction_Item extends Controller_Admin
 	{
 		$data['transaction_item'] = Model_Transaction_Item::find($id);
 
-		$this->template->title = "Transaction_item";
+		$this->template->title = "Transaction Item";
 		$this->template->content = View::forge('admin/transaction/item/view', $data);
 
 	}
@@ -51,7 +51,7 @@ class Controller_Admin_Transaction_Item extends Controller_Admin
 			}
 		}
 
-		$this->template->title = "Transaction_Items";
+		$this->template->title = "Transaction Items";
 		$this->template->content = View::forge('admin/transaction/item/create');
 
 	}
@@ -94,7 +94,7 @@ class Controller_Admin_Transaction_Item extends Controller_Admin
 			$this->template->set_global('transaction_item', $transaction_item, false);
 		}
 
-		$this->template->title = "Transaction_items";
+		$this->template->title = "Transaction Items";
 		$this->template->content = View::forge('admin/transaction/item/edit');
 
 	}
