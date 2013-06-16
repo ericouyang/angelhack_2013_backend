@@ -5,21 +5,94 @@ class Controller_Api extends Controller_Rest
     
   public function get_item()
   {
-      return $this->response(
-                    Model_Item::find('first', array(
+    $upc = Input::get('upc');
+    if (size($upc) == 13) $upc = substr ($upc, 1);
+    
+    $item = Model_Item::find('first', array(
                          'where' => array(
-                              array('upc', Input::get('upc')),
-                          )))
-              );
+                              array('upc', $upc),
+                          )));
+    if ($item == null)
+      return $this->response(array(
+                 'error' => 'Item not found'
+            ));
+    else
+      return $this->response($item);
   }
+  
   public function get_transaction()
   {
-      return $this->response(
+    $transaction = Model_Transaction::query()
+                    ->related('transaction_items')
+                    ->related('transaction_items.item')
+                    ->where('id', Input::get('id'))
+                    ->get_one();
+    if ($transaction == null)
+      return $this->response(array(
+                 'error' => 'Transaction not found'
+            ));
+    else
+      return $this->response($transaction);
+  }
+  
+  public function post_transaction_create()
+  {
+    $new = new Model_Transaction();
+    $new->user_id = Input::post('user_id');
+    $new->save();
+    
+    return $this->response($new->id);
+  }
+  
+  public function post_transaction_add_item()
+  {
+    $new = new Model_Transaction_Item();
+    $new->transaction_id = Input::post('transaction_id');
+    $new->item_id = Input::post('item_id');
+    $new->qty = Input::post('quantity') == null ? 1 : Input::post('quantity');
+    $new->save();
+    
+    $new->item->qty = $new->item->qty - $new->qty;
+    $new->item->save();
+    
+    return $this->response(
                     Model_Transaction::query()
                     ->related('transaction_items')
                     ->related('transaction_items.item')
-                    ->where('paypal_id', Input::get('id'))
-                    ->get_one()
-                );
+                    ->where('id', $new->transaction_id)
+                    ->get_one());
   }
+  
+  public function post_transaction_complete()
+  {
+    $transaction = Model_Transaction::find(Input::post('transaction_id'));
+    $transaction->paypal_id = Input::post('paypal_id');
+    $transaction->save();
+  }
+  
+  public function post_transaction_item_update_quantity()
+  {
+    $transaction_item = Model_Transaction_Item::find(Input::get('id'));
+    $quantity_added = $transaction_item->qty;
+    $transaction_item->qty = Input::post('quantity') == null ? 1 : Input::post('quantity');
+    $transaction_item->save();
+    
+    $transaction_item->item->qty = $transaction_item->item->qty + $quantity_added - $transaction_item->qty;
+    $transaction_item->item->save();
+  }
+  
+  public function post_transaction_item_delete()
+  {
+    $transaction_item = Model_Transaction_Item::find(Input::post('id'));
+    $transaction_item->item->qty = $transaction_item->item->qty + $transaction_item->qty;
+    $transaction_item->item->save();
+    $transaction_item->delete();
+  }
+  
+  public function post_transaction_delete()
+  {
+    $transaction = Model_Transaction::find(Input::post('id'));
+    $transaction->delete();
+  }
+  
 }

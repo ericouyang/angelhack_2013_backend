@@ -15,6 +15,7 @@ build
 /fuel/app/cache/*/*
 /fuel/app/config/crypt.php
 nbproject/
+.htaccess
 
 fuel/app/config/production
 fuel/app/config/staging

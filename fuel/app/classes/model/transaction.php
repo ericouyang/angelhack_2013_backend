@@ -1,7 +1,7 @@
 <?php
 class Model_Transaction extends \Orm\Model
 {
-  protected static $_has_many = array('transaction_items');
+  protected static $_has_many = array('transaction_items' => array('cascade_delete' => true));
   
 	protected static $_properties = array(
 		'id',
@@ -26,7 +26,6 @@ class Model_Transaction extends \Orm\Model
 	{
 		$val = Validation::forge($factory);
 		$val->add_field('user_id', 'User Id', 'required|valid_string[numeric]');
-		$val->add_field('paypal_id', 'Paypal Id', 'required|max_length[255]');
 
 		return $val;
 	}

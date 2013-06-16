@@ -9,7 +9,7 @@ class Create_transactions
 		\DBUtil::create_table('transactions', array(
 			'id' => array('constraint' => 11, 'type' => 'int', 'auto_increment' => true, 'unsigned' => true),
 			'user_id' => array('constraint' => 11, 'type' => 'int'),
-			'paypal_id' => array('constraint' => 255, 'type' => 'varchar'),
+			'paypal_id' => array('constraint' => 255, 'type' => 'varchar', 'null' => true),
 			'created_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
 			'updated_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
 
