@@ -6,7 +6,7 @@ class Controller_Admin_Item extends Controller_Admin
 	{
 		$data['items'] = Model_Item::find('all');
 		$this->template->title = "Items";
-		$this->template->content = View::forge('admin\item/index', $data);
+		$this->template->content = View::forge('admin/item/index', $data);
 
 	}
 
@@ -15,7 +15,7 @@ class Controller_Admin_Item extends Controller_Admin
 		$data['item'] = Model_Item::find($id);
 
 		$this->template->title = "Item";
-		$this->template->content = View::forge('admin\item/view', $data);
+		$this->template->content = View::forge('admin/item/view', $data);
 
 	}
 
@@ -54,7 +54,7 @@ class Controller_Admin_Item extends Controller_Admin
 		}
 
 		$this->template->title = "Items";
-		$this->template->content = View::forge('admin\item/create');
+		$this->template->content = View::forge('admin/item/create');
 
 	}
 
@@ -101,7 +101,7 @@ class Controller_Admin_Item extends Controller_Admin
 		}
 
 		$this->template->title = "Items";
-		$this->template->content = View::forge('admin\item/edit');
+		$this->template->content = View::forge('admin/item/edit');
 
 	}
 

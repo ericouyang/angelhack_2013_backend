@@ -4,7 +4,7 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th>Transcation id</th>
+			<th>Transaction id</th>
 			<th>Item id</th>
 			<th></th>
 		</tr>
@@ -12,7 +12,7 @@
 	<tbody>
 <?php foreach ($transaction_items as $transaction_item): ?>		<tr>
 
-			<td><?php echo $transaction_item->transcation_id; ?></td>
+			<td><?php echo $transaction_item->transaction_id; ?></td>
 			<td><?php echo $transaction_item->item_id; ?></td>
 			<td>
 				<?php echo Html::anchor('admin/transaction/item/view/'.$transaction_item->id, 'View'); ?> |

@@ -6,7 +6,7 @@ class Controller_Admin_Transaction extends Controller_Admin
 	{
 		$data['transactions'] = Model_Transaction::find('all');
 		$this->template->title = "Transactions";
-		$this->template->content = View::forge('admin\transaction/index', $data);
+		$this->template->content = View::forge('admin/transaction/index', $data);
 
 	}
 
@@ -15,7 +15,7 @@ class Controller_Admin_Transaction extends Controller_Admin
 		$data['transaction'] = Model_Transaction::find($id);
 
 		$this->template->title = "Transaction";
-		$this->template->content = View::forge('admin\transaction/view', $data);
+		$this->template->content = View::forge('admin/transaction/view', $data);
 
 	}
 
@@ -51,7 +51,7 @@ class Controller_Admin_Transaction extends Controller_Admin
 		}
 
 		$this->template->title = "Transactions";
-		$this->template->content = View::forge('admin\transaction/create');
+		$this->template->content = View::forge('admin/transaction/create');
 
 	}
 
@@ -92,7 +92,7 @@ class Controller_Admin_Transaction extends Controller_Admin
 		}
 
 		$this->template->title = "Transactions";
-		$this->template->content = View::forge('admin\transaction/edit');
+		$this->template->content = View::forge('admin/transaction/edit');
 
 	}
 

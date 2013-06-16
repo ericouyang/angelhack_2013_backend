@@ -6,7 +6,7 @@ class Controller_Admin_Transaction_Item extends Controller_Admin
 	{
 		$data['transaction_items'] = Model_Transaction_Item::find('all');
 		$this->template->title = "Transaction_items";
-		$this->template->content = View::forge('admin\transaction\item/index', $data);
+		$this->template->content = View::forge('admin/transaction/item/index', $data);
 
 	}
 
@@ -15,7 +15,7 @@ class Controller_Admin_Transaction_Item extends Controller_Admin
 		$data['transaction_item'] = Model_Transaction_Item::find($id);
 
 		$this->template->title = "Transaction_item";
-		$this->template->content = View::forge('admin\transaction\item/view', $data);
+		$this->template->content = View::forge('admin/transaction/item/view', $data);
 
 	}
 
@@ -28,7 +28,7 @@ class Controller_Admin_Transaction_Item extends Controller_Admin
 			if ($val->run())
 			{
 				$transaction_item = Model_Transaction_Item::forge(array(
-					'transcation_id' => Input::post('transcation_id'),
+					'transaction_id' => Input::post('transaction_id'),
 					'item_id' => Input::post('item_id'),
 				));
 
@@ -51,7 +51,7 @@ class Controller_Admin_Transaction_Item extends Controller_Admin
 		}
 
 		$this->template->title = "Transaction_Items";
-		$this->template->content = View::forge('admin\transaction\item/create');
+		$this->template->content = View::forge('admin/transaction/item/create');
 
 	}
 
@@ -62,7 +62,7 @@ class Controller_Admin_Transaction_Item extends Controller_Admin
 
 		if ($val->run())
 		{
-			$transaction_item->transcation_id = Input::post('transcation_id');
+			$transaction_item->transaction_id = Input::post('transaction_id');
 			$transaction_item->item_id = Input::post('item_id');
 
 			if ($transaction_item->save())
@@ -82,7 +82,7 @@ class Controller_Admin_Transaction_Item extends Controller_Admin
 		{
 			if (Input::method() == 'POST')
 			{
-				$transaction_item->transcation_id = $val->validated('transcation_id');
+				$transaction_item->transaction_id = $val->validated('transaction_id');
 				$transaction_item->item_id = $val->validated('item_id');
 
 				Session::set_flash('error', $val->error());
@@ -92,7 +92,7 @@ class Controller_Admin_Transaction_Item extends Controller_Admin
 		}
 
 		$this->template->title = "Transaction_items";
-		$this->template->content = View::forge('admin\transaction\item/edit');
+		$this->template->content = View::forge('admin/transaction/item/edit');
 
 	}
 

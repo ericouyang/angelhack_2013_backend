@@ -2,10 +2,10 @@
 
 	<fieldset>
 		<div class="control-group">
-			<?php echo Form::label('Transcation id', 'transcation_id', array('class'=>'control-label')); ?>
+			<?php echo Form::label('Transaction id', 'transaction_id', array('class'=>'control-label')); ?>
 
 			<div class="controls">
-				<?php echo Form::input('transcation_id', Input::post('transcation_id', isset($transaction_item) ? $transaction_item->transcation_id : ''), array('class' => 'span4', 'placeholder'=>'Transcation id')); ?>
+				<?php echo Form::input('transaction_id', Input::post('transaction_id', isset($transaction_item) ? $transaction_item->transaction_id : ''), array('class' => 'span4', 'placeholder'=>'Transaction id')); ?>
 
 			</div>
 		</div>

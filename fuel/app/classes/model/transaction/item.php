@@ -3,7 +3,7 @@ class Model_Transaction_Item extends \Orm\Model
 {
 	protected static $_properties = array(
 		'id',
-		'transcation_id',
+		'transaction_id',
 		'item_id',
 		'created_at',
 		'updated_at',
@@ -23,7 +23,7 @@ class Model_Transaction_Item extends \Orm\Model
 	public static function validate($factory)
 	{
 		$val = Validation::forge($factory);
-		$val->add_field('transcation_id', 'Transcation Id', 'required|valid_string[numeric]');
+		$val->add_field('transaction_id', 'Transaction Id', 'required|valid_string[numeric]');
 		$val->add_field('item_id', 'Item Id', 'required|valid_string[numeric]');
 
 		return $val;
