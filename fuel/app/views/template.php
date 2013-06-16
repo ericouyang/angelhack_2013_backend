@@ -34,11 +34,10 @@
 <?php echo $content; ?>
 		</div>
 		<footer>
-			<p class="pull-right">Page rendered in {exec_time}s using {mem_usage}mb of memory.</p>
 			<p>
-				<a href="http://fuelphp.com">FuelPHP</a> is released under the MIT license.<br>
-				<small>Version: <?php echo e(Fuel::VERSION); ?></small>
-			</p>
+        Luup, Inc. &copy 2013. All rights reserved.<br>
+        <small>AngelHack: San Jose - June 2013</small>
+      </p>
 		</footer>
 	</div>
 </body>

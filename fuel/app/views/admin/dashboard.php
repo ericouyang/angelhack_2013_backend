@@ -1,5 +1,5 @@
 <div class="hero-unit">
-	<h1>Welcome to Luup!</h1>
+	<h1 style="line-height: 82px">Welcome to Luup!</h1>
 	<p>Get started by managing business inventory!</p>
 	<p><a class="btn btn-primary btn-large" href="/admin/item/index.php">View Inventory</a></p>
 </div>
