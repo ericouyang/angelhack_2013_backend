@@ -55,7 +55,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="span12">
-				<h1><?php echo $title; ?></h1>
+				<div class="page-header">
+          <h1><?php echo $title; ?></h1>
+        </div>
 				<hr>
 <?php if (Session::get_flash('success')): ?>
 				<div class="alert alert-success">
