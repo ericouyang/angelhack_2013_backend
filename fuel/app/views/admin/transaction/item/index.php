@@ -4,6 +4,7 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
+			<th>Transaction Item ID</th>
 			<th>Transaction ID</th>
 			<th>Item ID</th>
 			<th>Qty</th>
