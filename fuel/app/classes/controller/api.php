@@ -63,12 +63,7 @@ class Controller_Api extends Controller_Rest
     $new->item->qty = $new->item->qty - $new->qty;
     $new->item->save();
     
-    return $this->response(
-                    Model_Transaction::query()
-                    ->related('transaction_items')
-                    ->related('transaction_items.item')
-                    ->where('id', $new->transaction_id)
-                    ->get_one());
+    return $this->response($new->id);
   }
   
   public function get_transaction_complete()

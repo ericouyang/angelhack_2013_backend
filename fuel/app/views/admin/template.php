@@ -58,7 +58,7 @@
 				<div class="page-header">
           <h1><?php echo $title; ?></h1>
         </div>
-				<hr>
+				
 <?php if (Session::get_flash('success')): ?>
 				<div class="alert alert-success">
 					<button class="close" data-dismiss="alert">×</button>
