@@ -23,7 +23,7 @@
 
 return array(
 	'driver' => 'Ormauth',
-	'verify_multiple_logins' => true,
+	'verify_multiple_logins' => false,
 	'salt' => 'd8K(sdfnx83ns$^%&Sjd',
 	'iterations' => 10000,
 );

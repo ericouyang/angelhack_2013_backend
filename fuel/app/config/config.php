@@ -271,7 +271,7 @@ return array(
 		 * );
 		 */
 		'packages'  => array(
-		  'auth', 'orm',
+		  'auth', 'orm'
 		),
 
 		/**
