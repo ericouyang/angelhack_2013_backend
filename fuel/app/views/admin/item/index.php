@@ -24,7 +24,7 @@
 			<td>
 				<?php echo Html::anchor('admin/item/view/'.$item->id, 'View'); ?> |
 				<?php echo Html::anchor('admin/item/edit/'.$item->id, 'Edit'); ?> |
-				<?php echo Html::anchor('admin/item/delete/'.$item->id, 'Delete', array('onclick' => "return confirm('Are you sure you want to delete this?')")); ?>
+				<?php echo Html::anchor('admin/item/delete/'.$item->id, 'Delete', array('onclick' => "return confirm('Are you sure you want to delete?')")); ?>
 
 			</td>
 		</tr>
